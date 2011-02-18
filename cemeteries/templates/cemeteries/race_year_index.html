@@ -1,0 +1,15 @@
+{% include base.html %}
+
+{% block content %}
+
+
+<h2>Sailing</h2>
+
+<ul>
+{% for race in races %}
+  <li><a href="{{race.get_absolute_url}}">{{race.date|date:"Y"}}</a></li>
+{% endfor %}
+</ul>
+
+<h2>Most recent race</h2>
+{% endblock %}

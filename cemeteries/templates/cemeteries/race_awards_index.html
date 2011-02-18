@@ -1,0 +1,16 @@
+{% include "sailing/base.html" %}
+
+{% block title %}Sailing - {{race}} awards {% endblock %}
+
+{% block content %}
+
+  <h2>{{race.name}} Awards {{race.date|date:"Y"}}</h2>
+
+  <table>
+    <tr><th>Award</th><th>Recipient</th><th>Boat</th><th>Description</th></tr>
+  {% for a in awards %}
+    <tr><td>{{ a.title }}</td><td>{% if a.skipper %}{{a.skipper.skipper.full_name}}</td><td>{{a.skipper.boat}}{% else %}{% if a.owner %}{{a.owner}}</td><td>{{a.boat}}{% else %}{% if a.boat %}{{a.boat}}<td>{% else %}{% if a.other %}{{ a.other }}{% else %}None<td></td>{% endif %}{% endif %}{% endif %}{% endif %}</td><td>{% if a.description %}{{a.description}}{% else %}No description{% endif %}</td></tr>
+  {% endfor %}
+  </table>
+
+{% endblock %}

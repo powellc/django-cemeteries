@@ -1,0 +1,11 @@
+{% extends "cemeteries/base.html" %}
+
+{% block content %}
+    <h2>Cemeteries</h2>
+    <ul>
+        {% for cemetery in cemeteries %}
+		<li><a href="{{cemetery.get_absolute_url}}">{{ cemetery }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
